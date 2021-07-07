@@ -41,6 +41,7 @@ print(*exprs.examples[0].trg, sep='')
 ```
 
 ```python
+# .build_vocab을 통해 토근화된 데이터셋을 정수 임베딩 
 # Build vocab only from the training set, which can prevent information leakage
 SRC.build_vocab(train_data)
 TRG.build_vocab(train_data)
@@ -52,6 +53,7 @@ print(f'Total {len(TRG.vocab)} unique tokens in target vocabulary')
 batch_size = 128
 device = torch.device('cuda')
 
+# 임베딩된 데이터셋을 GPU 사용, 정렬, 배치크기를 정의해서 generator object 구현 
 train_iter, valid_iter = BucketIterator.splits(
     (train_data, valid_data),
     batch_size=batch_size,
@@ -61,6 +63,7 @@ train_iter, valid_iter = BucketIterator.splits(
 ```
 
 ```python
+# SRC의 모든 Vocab 출력
 print(SRC.vocab.stoi)
 ```
 
