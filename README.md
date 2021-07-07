@@ -2,7 +2,7 @@
 https://aclanthology.org/2020.findings-emnlp.56/
 
 
-## Data pre-processing
+## How to Data pre-processing
 
 ###### Input Data Sample : -2*(~x&y)-(~y)+2*(~x)-y+2 
 ###### Output Data Sample : -2*(x|y)+1 
