@@ -3,6 +3,8 @@ https://aclanthology.org/2020.findings-emnlp.56/
 
 
 ## Data pre-processing
+<h2>Input Data Sample : -2*(~x&y)-(~y)+2*(~x)-y+2 </h2>
+<h2>Output Data Sample : -2*(x|y)+1 </h2>
 
 ```python
 import torchtext.legacy as torchtext
