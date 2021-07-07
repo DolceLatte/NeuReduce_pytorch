@@ -1,7 +1,6 @@
 # NeuReduce_pytorch
 
 Find out markdown
-<li>
-[How to Data-processing](https://github.com/DolceLatte/NeuReduce_pytorch/blob/main/How%20to%20Data%20pre-processing.md).
-[Implementation of Model](https://github.com/DolceLatte/NeuReduce_pytorch/blob/main/Model_summary.md).
-</i>
+
+[How to Data-processing](https://github.com/DolceLatte/NeuReduce_pytorch/blob/main/How%20to%20Data%20pre-processing.md)<br/>
+[Implementation of Model](https://github.com/DolceLatte/NeuReduce_pytorch/blob/main/Model_summary.md)<br/>
