@@ -63,9 +63,9 @@ print(SRC.vocab.stoi)
 ```
 
 ```python
-bar = tqdm(iterator=train_iter, unit='batchs', ncols=100)
-    for i, batch in enumerate(pbar):
-        src = batch.src
-        trg = batch.trg
-        trg = trg[:, :-1]
+pbar = tqdm(iterator=train_iter, unit='batchs', ncols=100)
+for i, batch in enumerate(pbar):
+    src = batch.src
+    trg = batch.trg
+    trg = trg[:, :-1]
 ```
