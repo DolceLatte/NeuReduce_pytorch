@@ -13,11 +13,13 @@ from torchtext.legacy.data import Field, BucketIterator
 ```
 
 ```python
+# 데이터 셋의 각 Column에 대한 필드정의( tokenizeing 방식, 추가 토큰 정의, 대소문자 처리 )
 SRC = Field(tokenize=_tokenize,init_token='<sos>',eos_token='<eos>',pad_token='<pad>',lower=True,batch_first=True)
 TRG = Field(tokenize=_tokenize,init_token='<sos>',eos_token='<eos>',pad_token='<pad>',lower=True,batch_first=True)
 ```
 
 ```python
+# src, trg 순서대로 Column의 필드가 적용
 exprs = torchtext.data.TabularDataset(
     path='./dataset.csv',
     format='csv',
@@ -26,7 +28,7 @@ exprs = torchtext.data.TabularDataset(
         ('trg', TRG)
     ]
 )
-
+# .split을 통해 비율을 나눌 수 있음
 train_data, valid_data = exprs.split(split_ratio=0.8)
 
 print(f'Total {len(exprs)} samples.')
