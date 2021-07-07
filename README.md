@@ -63,7 +63,7 @@ print(SRC.vocab.stoi)
 ```
 
 <details><summary>CLICK ME</summary>
-```yaml
+```c++
 defaultdict(<bound method Vocab._default_unk_index of <torchtext.legacy.vocab.Vocab object at 0x0000024DFC372EB0>>, {'<unk>': 0, '<pad>': 1, '<sos>': 2, '<eos>': 3, '(': 4, ')': 5, 'y': 6, 'x': 7, '~': 8, '-': 9, '+': 10, '*': 11, '2': 12, '|': 13, '&': 14, '^': 15, '1': 16, '3': 17, 'c': 18, '4': 19, 'd': 20, 'a': 21, 'e': 22, 't': 23, 'b': 24, 'z': 25, '5': 26, '6': 27, '7': 28, '8': 29, '9': 30, '0': 31})
 ```
 </details>
