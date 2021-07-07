@@ -39,8 +39,8 @@ print()
 print(*exprs.examples[0].src, sep='')
 print(*exprs.examples[0].trg, sep='')
 ```
-*exprs.examples[0].src : -2*(~x&y)-(~y)+2*(~x)-y+2 
-exprs.examples[0].trg : -2*(x|y)+1 
+###### *exprs.examples[0].src : -2*(~x&y)-(~y)+2*(~x)-y+2 
+###### exprs.examples[0].trg : -2*(x|y)+1 
 
 ```python
 # .build_vocab을 통해 토근화된 데이터셋을 정수 임베딩 
@@ -64,12 +64,12 @@ train_iter, valid_iter = BucketIterator.splits(
 )
 
 next(iter(train_iter)).src[0]
-""" OutPut
-    tensor([ 2,  4,  8,  4,  7, 15,  6,  5,  5, 10,  4,  8,  6,  5,  9, 12, 11,  4,
-             7, 13,  8,  6,  5, 10, 12, 11,  4,  8,  7,  5,  9, 12, 11,  4,  9, 16,
-             5,  3,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,
-             1,  1,  1,  1], device='cuda:0')
-"""
+```
+tensor([ 2,  4,  8,  4,  7, 15,  6,  5,  5, 10,  4,  8,  6,  5,  9, 12, 11,  4,
+         7, 13,  8,  6,  5, 10, 12, 11,  4,  8,  7,  5,  9, 12, 11,  4,  9, 16,
+         5,  3,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,
+         1,  1,  1,  1], device='cuda:0')
+```
 ```
 
 ```python
