@@ -119,11 +119,13 @@ class MultiHeadAttentionLayer(nn.Module):
         # Q = [batch size, query len, hid dim]
         # K = [batch size, key len, hid dim]
         # V = [batch size, value len, hid dim]
-
+           
+        # view(-1)를 통해 멀티헤드 어텐션을 수행할 수 있도록 차원 변환
         Q = Q.view(batch_size, -1, self.n_heads, self.head_dim).permute(0, 2, 1, 3)
         K = K.view(batch_size, -1, self.n_heads, self.head_dim).permute(0, 2, 1, 3)
         V = V.view(batch_size, -1, self.n_heads, self.head_dim).permute(0, 2, 1, 3)
-
+        
+        # [128, 64, 256] -> [128, 8, 64, 32] || (256/8 = 32)
         # Q = [batch size, n heads, query len, head dim]
         # K = [batch size, n heads, key len, head dim]
         # V = [batch size, n heads, value len, head dim]
@@ -131,16 +133,20 @@ class MultiHeadAttentionLayer(nn.Module):
         energy = torch.matmul(Q, K.permute(0, 1, 3, 2)) / self.scale
 
         # energy = [batch size, n heads, query len, key len]
-
+        
+        # <PAD> 토큰에 대한 마스크 처리, 매우 작은 음수를 대입하여 영향력을 줄임
         if mask is not None:
             energy = energy.masked_fill(mask == 0, -1e10)
-
+        
+        # 소프트맥스 함수를 통해 가중치를 계산
         attention = torch.softmax(energy, dim=-1)
         # attention = [batch size, n heads, query len, key len]
+        # 가중치와 V를 곱하여 Attention(Q,K,V)를 계산
         x = torch.matmul(self.dropout(attention), V)
         # x = [batch size, n heads, query len, head dim]
         x = x.permute(0, 2, 1, 3).contiguous()
         # x = [batch size, query len, n heads, head dim]
+        # 차원을 다시 256으로 변환
         x = x.view(batch_size, -1, self.hid_dim)
         # x = [batch size, query len, hid dim]
         x = self.fc_o(x)
