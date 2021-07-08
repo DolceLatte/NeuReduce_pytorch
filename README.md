@@ -14,6 +14,9 @@ https://aclanthology.org/2020.findings-emnlp.56/
 |Transformer|8950|82.22%|7.3|0.026s|
 
 
+#### Example Expression
 MBA expression : 2*(x&(y|z))+(~x|~z)-2*(y^z)+(~y^z)-2*(y^~z)-(x&y) <br/>
-trg 		= -(~x&(y^z))
-predicted trg 	= -(~x&(y^z))
+trg : -(~x&(y^z))<br/>
+
+#### Results
+Transformer predicted trg : -(~x&(y^z))<br/>
