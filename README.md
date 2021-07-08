@@ -10,8 +10,8 @@ https://aclanthology.org/2020.findings-emnlp.56/
 |Method|Correct|Ratio|Result Length|Solving Time
 |---|---|---|---|---|
 |LSTM|*강조1*|테스트3|테스트3|테스트3|
-|LSTM-Attention|**강조2**|테스트3|테스트3|테스트3|
-|Transformer|8950|82.22%|7.3|0.026s|
+|LSTM-Attention|7530|69.20%|6.8|**0.007s**|
+|Transformer|8950|**82.22%**|7.3|0.026s|
 
 
 #### Example Expression
