@@ -20,3 +20,5 @@ trg : -(~x&(y^z))<br/>
 
 #### Results
 Transformer predicted trg : -(~x&(y^z))<br/>
+LSTM-Attention predicted trg : -(~x&(y^z))<br/>
+LSTM predicted trg : -(~x&(y^z))<br/>
