@@ -15,14 +15,15 @@ class Encoder(nn.Module):
                  hid_dim, # 임베딩레이어의 차원 -> 멀티헤드어텐션 입력 차원 (assert hid_dim % n_heads == 0)
                  n_layers, # 멀티헤드어텐션 레이어 중첩 수
                  n_heads, # 멀티헤드어텐션 레이어의 헤드
-                 pf_dim, # FFNN 출력레이어 차원
+                 pf_dim, # FFNN의 출력레이어 차원 (FFNN의 입력레이어의 차원은 hid_dim)
                  dropout, # 임베딩레이어의 DropOut수행
                  device, # Cuda Device
                  max_length=100):
         super().__init__()
         self.device = device
-        self.tok_embedding = nn.Embedding(input_dim, hid_dim)
-        self.pos_embedding = nn.Embedding(max_length, hid_dim)
+        self.tok_embedding = nn.Embedding(input_dim, hid_dim) # Token 임베딩
+        self.pos_embedding = nn.Embedding(max_length, hid_dim) # Positional 임베딩
+        # Multi-head Self Attention
         self.layers = nn.ModuleList([EncoderLayer(hid_dim,
                                                   n_heads,
                                                   pf_dim,
@@ -46,16 +47,16 @@ class Encoder(nn.Module):
         # src = [batch size, src len, hid dim]
         return src
 
-
+# 인코더의 셀프어텐션
 class EncoderLayer(nn.Module):
     def __init__(self,
-                 hid_dim,
-                 n_heads,
-                 pf_dim,
+                 hid_dim, # 멀티헤드어텐션 입력 차원 (assert hid_dim % n_heads == 0)
+                 n_heads, # 멀티헤드어텐션 레이어의 헤드
+                 pf_dim,  # FFNN의 출력레이어 차원
                  dropout,
                  device):
         super().__init__()
-
+        
         self.self_attn_layer_norm = nn.LayerNorm(hid_dim)
         self.ff_layer_norm = nn.LayerNorm(hid_dim)
         self.self_attention = MultiHeadAttentionLayer(hid_dim, n_heads, dropout, device)
@@ -79,4 +80,4 @@ class EncoderLayer(nn.Module):
         # src = [batch size, src len, hid dim]
         return src
 ```
-
+## 
