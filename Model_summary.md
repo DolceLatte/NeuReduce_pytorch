@@ -264,13 +264,15 @@ class Seq2Seq(nn.Module):
         self.src_pad_idx = src_pad_idx
         self.trg_pad_idx = trg_pad_idx
         self.device = device
-
+    
+    # padding mask 구현
     def make_src_mask(self, src):
         # src = [batch size, src len]
         src_mask = (src != self.src_pad_idx).unsqueeze(1).unsqueeze(2)
         # src_mask = [batch size, 1, 1, src len]
         return src_mask
-
+    
+    # look-ahead mask구현
     def make_trg_mask(self, trg):
         # trg = [batch size, trg len]
         trg_pad_mask = (trg != self.trg_pad_idx).unsqueeze(1).unsqueeze(2)
