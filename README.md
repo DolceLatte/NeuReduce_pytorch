@@ -9,7 +9,7 @@ https://aclanthology.org/2020.findings-emnlp.56/
 ### Comparative evaluation result
 |Method|Correct|Ratio|Result Length|Solving Time
 |---|---|---|---|---|
-|LSTM|*강조1*|테스트3|테스트3|테스트3|
+|LSTM|4621|42.50%|6.1|0.003|
 |LSTM-Attention|7530|69.20%|6.8|**0.007s**|
 |Transformer|8950|**82.22%**|7.3|0.026s|
 
