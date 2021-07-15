@@ -9,22 +9,22 @@ https://aclanthology.org/2020.findings-emnlp.56/
 ### Comparative evaluation result
 |Method|Correct|Ratio|Result Length|Solving Time
 |---|---|---|---|---|
-|LSTM|4621|42.50%|6.1|0.003s|
 |LSTM-Attention|7530|69.20%|6.8|**0.007s**|
-|Transformer|8950|**82.22%**|7.3|0.026s|
-
-|Method|Correct|Ratio|Result Length|Solving Time
-|---|---|---|---|---|
-|LSTM|7144|71.94%|18.1|0.03s|
-|LSTM-Attention|7393|73.93%|18.04|0.4s|
-|Transformer|7824|78.24|18.02|0.4s|
-
+|Transformer|5040|**50.40%**|7.3|0.026s|
 
 #### Example Expression
 MBA expression : 2*(x&(y|z))+(~x|~z)-2*(y^z)+(~y^z)-2*(y^~z)-(x&y) <br/>
 trg : -(~x&(y^z))<br/>
-
 #### Results
 Transformer predicted trg : -(~x&(y^z))<br/>
 LSTM-Attention predicted trg : -(~x&(y^z))<br/>
-LSTM predicted trg : -(~x&(y^z))<br/>
+
+#### Qsynth Expression
+MBA expression : <br/>
+trg : <br/>
+#### Results
+Transformer predicted trg :<br/>
+LSTM-Attention predicted trg : <br/>
+
+
+
