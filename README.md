@@ -10,7 +10,7 @@ https://aclanthology.org/2020.findings-emnlp.56/
 |Method|Correct|Ratio|Result Length|Solving Time
 |---|---|---|---|---|
 |Transformer(Paper)|7824|78.24%|18.02|0.43s|
-|Transformer(Ours)|5704|57.04%|16.2|0.06s|
+|Transformer(Ours)|6115|61.15%|16.2|0.055s|
 
 #### Example Expression
 MBA expression : 2*(x&(y|z))+(~x|~z)-2*(y^z)+(~y^z)-2*(y^~z)-(x&y) <br/>
